@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import './dummy_data.dart';
+import './category_item.dart';
+
 class CategoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,7 +13,14 @@ class CategoriesScreen extends StatelessWidget {
         crossAxisSpacing: 20,
         mainAxisSpacing: 20,
       ),
-      children: <Widget>[],
+      children: DUMMY_CATEGORIES
+          .map(
+            (catData) => CategoryItem(
+              catData.title,
+              catData.color,
+            ),
+          )
+          .toList(),
     );
   }
 }
