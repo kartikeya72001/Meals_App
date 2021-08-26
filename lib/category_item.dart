@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/category_meals_screen.dart';
 
 class CategoryItem extends StatelessWidget {
+  final String id;
   final String title;
   final Color color;
 
   // ignore: non_constant_identifier_names
   void _SelectCategory(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return CategoryMealsScreen();
-        },
-      ),
+    Navigator.of(context).pushNamed(
+      '/category-meals',
+      arguments: {'id': id, 'title': title},
     );
   }
 
-  CategoryItem(this.title, this.color);
+  CategoryItem(this.id, this.title, this.color);
   @override
   Widget build(BuildContext context) {
     return InkWell(
